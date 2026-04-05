@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-storage-compat.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Game Up247</title>
+    <link rel="stylesheet" href="../css/Home.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <script src="js/firebase-config.js"></script>
+
+    <header class="main-header">
+        <div class="logo">TinGameUp247</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="active">Trang Chủ</a></li>
+                <li><a href="#">Cộng đồng</a></li>
+                <li><a href="html/KhamPha.html">khám Phá Thêm</a></li>
+                <li><a href="html/Feedback.html">Góp ý</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="html/Signup.html" class="button1">Đăng Ký</a>
+            <a href="html/Login.html" class="button2 hidden">Đăng Nhập</a>
+            <button class="button4" onclick="logout()">Đăng Xuất</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active position-relative">
+                <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/e5f34c6bfd54b8eb3ef73cb9750865ce728cb54c-1920x1080.jpg" class="d-block w-100" alt="Valorant">
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="https://i.ytimg.com/vi/wOgCRPuVE8Q/maxresdefault.jpg" class="d-block w-100" alt="Minecraft">
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/169340/Originals/undertale-7.jpg" class="d-block w-100" alt="Undertale">
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="https://static0.thegamerimages.com/wordpress/wp-content/uploads/2019/06/Fortnite-fortnight.jpg" class="d-block w-100" alt="Fornite">
+            </div>
+        </div>
+    </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#gameCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-content">
+                <h1>Gợi ý tin tức hôm nay :
+                    <p class="goiY">Minecraft</p>
+                </h1>
+                <p>Cập nhật tin tức nhanh hơn một số người</p>
+            </div>
+                
+            </div>
+            <div class="hero-backdrop"></div>
+        </section>
+
+        <section class="movie-listings">
+            <h2>Những tin tức mới nhất về game đang hot nhất 🔥</h2>
+            
+            <div class="movie-grid">
+                
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqFQ0P_Q0HxGnNMr_YDo_764HrHDHNFDX-Pw&s" class="img" alt="Tin 1"></div>
+                    <h3>Minecraft</h3>
+                    <p class="genre">Nhập vai</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBM9BDgJy6cLJHT_ljcSNQzlRUjpKpJkRumQ&s" class="img" alt="Tin 2"></div>
+                    <h3>Roblox</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRoeAWmNNT4UeXArOcMdmxm-dMqooPvzdVVQ&s" class="img" alt="Tin 3"></div>
+                    <h3>DOOM: The Dark Ages</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSARx3PPArre0EZQQycCfN2idHPg_s453zpaw&s" class="img" alt="Tin 4"></div>
+                    <h3>Call of Duty: Mobile is Season 11: 6th Anniversary</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGdAQEaQG-tZg2EJtVP3YiYr_LARia6D2Ovw&s" class="img" alt="Tin 5"></div>
+                    <h3>Counter-Strike 2 Update</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7SIHnh-fzv-gEfsfZMLfPIsCWLRx0-t4A&s" class="img" alt="Tin 6"></div>
+                    <h3>Valorant: Patch 11.11</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8TykG8DDnZ7D-fyoyjdNWOHzxsTJ-oiL28A&s" class="img" alt="Tin 7"></div>
+                    <h3>Helldivers 2: Into the Unjust</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSME6WGZrEzn27WHxWs-5eZQrWEtyT4Q70SpA&s" class="img" alt="Tin 8"></div>
+                    <h3>Elden Ring: Version 1.16.1</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg4omaGRnonQH2OdbSbVDScXq7tvlfHjYGng&s" class="img" alt="Tin 9"></div>
+                    <h3>Fortnite: Chapter Seven, Pacific Break</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame.html" class="button3">Xem tin tức</a>
+                </article>
+                <article class="movie-card">
+                    <div class="poster-placeholder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1-G7qbPPJqdGOMBBytlOccHrnArTF4CeEHw&s" class="img" alt="Tin 10"></div>
+                    <h3>Battlefield 6: Game Update 1.1.3.0 (Winter Offensive)</h3>
+                    <p class="genre">(Thể loại game)</p>
+                    <a href="html/TinTucGame" class="button3">Xem tin tức</a>
+                </article>
+                
+                </div>
+        </section>
+        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <!-- Thêm script để đảm bảo navbar hoạt động -->
+    <script>
+        // Đảm bảo các link navbar có thể click
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, checking navbar links...');
+            
+            // Kiểm tra tất cả các link trong navbar
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(function(link, index) {
+                console.log('Link ' + index + ':', link.href, link.textContent);
+                
+                // Thêm event listener để debug
+                link.addEventListener('click', function(e) {
+                    console.log('Clicked on:', this.textContent, 'href:', this.href);
+                });
+            });
+            
+            // Kiểm tra Bootstrap có load không
+            if (typeof bootstrap !== 'undefined') {
+                console.log('Bootstrap loaded successfully');
+            } else {
+                console.log('Bootstrap not loaded');
+            }
+        });
+     
+
+      // 2. Hàm Đăng xuất
+      function dangXuat() {
+        localStorage.removeItem("currentUser"); // Xóa phiên đăng nhập
+        window.location.href = "login.html"; // Quay về trang login
+      }
+    </script>
+    <footer class="footer">
+        <p>Liên hệ: trihieunguyen91@gmail.com</p>
+        <p>© 2025 TinGameUp247. Mọi quyền được bảo lưu.</p>
+    </footer>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC-hxA_9rgtx8arZIMkyxt6XBIJyyx8vjc",
+    authDomain: "fir-1-f162d.firebaseapp.com",
+    projectId: "fir-1-f162d",
+    storageBucket: "fir-1-f162d.firebasestorage.app",
+    messagingSenderId: "523869317457",
+    appId: "1:523869317457:web:5687e4fc503d5981a74b70",
+    measurementId: "G-F14LJSFLL8"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</body>
+</html>

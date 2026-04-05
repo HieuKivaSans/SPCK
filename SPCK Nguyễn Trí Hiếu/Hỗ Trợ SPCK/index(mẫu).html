@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trang Chủ</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 50px;
+        text-align: center;
+        background-color: #fff;
+      }
+      h1 {
+        color: #1877f2;
+      }
+      button {
+        padding: 10px 20px;
+        background: #ccc;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="loi-chao">Xin chào...</h1>
+    <p>Chào mừng bạn đến với mạng xã hội!</p>
+
+    <button onclick="dangXuat()">Đăng Xuất</button>
+
+    <script>
+      // 1. Kiểm tra xem đã đăng nhập chưa
+      var user = localStorage.getItem("currentUser");
+
+      if (user) {
+        // Nếu có tên, hiện lời chào
+        document.getElementById("loi-chao").innerText =
+          "Xin chào, " + user + "!";
+      } else {
+        // Nếu chưa đăng nhập mà cố vào đây -> Đá về trang đăng nhập
+        alert("Bạn chưa đăng nhập!");
+        window.location.href = "login.html";
+      }
+
+      // 2. Hàm Đăng xuất
+      function dangXuat() {
+        localStorage.removeItem("currentUser"); // Xóa phiên đăng nhập
+        window.location.href = "login.html"; // Quay về trang login
+      }
+    </script>
+  </body>
+</html>

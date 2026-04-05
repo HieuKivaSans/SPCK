@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="../css/Login.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="signup-page-wrapper">
+      <main class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title text-center mb-4">Đăng nhập tài khoản</h2>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="Nhập email vào đây"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="login-user">Mật khẩu</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="Nhập password bạn chọn"
+                      required
+                    />
+                  </div>
+                  <div class="button">
+                    <button
+                      type="submit"
+                      class="btn"
+                      onclick="return xuLyDangNhap();"
+                    >
+                      Đăng Nhập
+                    </button>
+                  </div>
+                <div class="text-center mt-3">
+                  <p>
+                    Chưa có tài khoản?
+                    <a href="../html/Signup.html">Đăng ký ngay</a>
+                  </p>
+                  <p>
+                    <a href="#" class="text-decoration-none">Quên mật khẩu?</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-hxA_9rgtx8arZIMkyxt6XBIJyyx8vjc",
+        authDomain: "fir-1-f162d.firebaseapp.com",
+        projectId: "fir-1-f162d",
+        storageBucket: "fir-1-f162d.firebasestorage.app",
+        messagingSenderId: "523869317457",
+        appId: "1:523869317457:web:5687e4fc503d5981a74b70",
+        measurementId: "G-F14LJSFLL8",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Gắn ra ngoài để HTML gọi được
+      window.xuLyDangNhap = function () {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if (email === "" || password === "") {
+          alert("Vui lòng nhập đầy đủ thông tin!");
+          return false;
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            alert("Đăng nhập thành công!");
+            console.log(userCredential.user);
+            window.location.href = "../Home.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+
+        return false;
+      };
+    </script>
+  </body>
+</html>

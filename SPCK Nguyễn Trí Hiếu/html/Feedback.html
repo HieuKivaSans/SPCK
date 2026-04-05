@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .feedback-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .header h2 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #555;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            font-weight: bold;
+            border: none;
+            transition: background 0.3s ease;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    text-decoration: none;
+}
+
+.main-nav a {
+    color: black;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.main-nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #e50914;
+    text-decoration: none;
+}
+.main-nav ul.hover{
+     color: #007bff !important; 
+    background-color: rgba(0,123,255,0.1) !important; 
+    text-decoration: none;
+}
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    cursor: pointer !important;
+    text-decoration: none !important; 
+    position: relative !important; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000 
+}
+.button1{
+    display: inline-block; 
+  padding: 10px 20px;
+  background-color: rgb(161, 2, 161); 
+  color: white; 
+  text-decoration: none; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.button1.hover{
+    background-color: rgb(131, 58, 131);
+    color: rgb(99, 98, 98);
+    text-decoration: none;
+    border: none
+}
+.button2{
+    display: inline-block; 
+  padding: 10px 20px;
+  background-color: #00ff51; 
+  color: white; 
+  text-decoration: none; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.button2.hover{
+    background-color: rgb(94, 153, 94);
+    text-decoration: none;
+    color: rgb(142, 142, 142);
+    border: none;
+}
+.logo{
+    font-size: xx-large;
+    font-weight: bold;
+    color: rgb(192, 95, 192);
+}
+h2{color: rgb(111, 188, 255);}
+
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">TinGameUp247</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../Home.html" >Trang Chủ</a></li>
+                <li><a href="#">Cộng đồng</a></li>
+                <li><a href="../html/KhamPha.html">khám Phá Thêm</a></li>
+                <li><a href="../html/Feedback.html"class="active">Góp ý</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="../html/Signup.html" class="button1">Đăng Ký</a>
+            <a href="../html/Login.html" class="button2">Đăng Nhập</a>
+        </div>
+    </header>
+
+<div class="container">
+    <div class="feedback-container">
+        <div class="header">
+            <h2>Gửi Ý Kiến Phản Hồi</h2>
+        </div>
+        
+        <form id="feedbackForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Tài khoản / Họ tên</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Nhập tên của bạn" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="subject" class="form-label">Tiêu đề</label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Chủ đề phản hồi" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Nội dung phản hồi</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Nội dung phản hồi của bạn"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="link_anh" class="form-label">Link ảnh minh họa (nếu có)</label>
+                <input type="url" class="form-control" id="link_anh" name="link_anh" placeholder="https://example.com/image.jpg">
+            </div>
+
+            <button type="submit" class="btn btn-submit">Gửi Phản Hồi</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>const form = document.getElementById("feedbackForm");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+    const name = document.getElementById("username").value;
+    const feedback = document.getElementById("message").value;
+
+  firebase.database().ref("feedbacks").push({
+    name: name,
+    feedback: feedback
+  });
+
+  alert("Feedback sent!");
+  form.reset();
+});
+</script>
+<script src="Firebaseconfig.js"></script>
+</body>
+</html>

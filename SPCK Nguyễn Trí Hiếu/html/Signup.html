@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Ký</title>
+
+    <link rel="stylesheet" href="../css/Signup.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="signup-page-wrapper">
+      <main class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title text-center mb-4">Đăng ký tài khoản</h2>
+
+                <div class="mb-3">
+                  <label for="username" class="form-label">Tên đăng nhập</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Nhập tên người dùng"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Nhập email vào đây"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">Mật khẩu</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Nhập password bạn chọn"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label"
+                    >Xác nhận mật khẩu</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmPassword"
+                    placeholder="Nhập lại password"
+                    required
+                  />
+                </div>
+
+                <div class="button">
+                  <button
+                    type="submit"
+                    class="btn"
+                    onclick="return xuLyDangKy();"
+                  >
+                    Đăng ký
+                  </button>
+                </div>
+
+                <div class="text-center mt-3">
+                  <p>
+                    Đã có tài khoản?
+                    <a href="../html/Login.html">Đăng nhập ngay</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-hxA_9rgtx8arZIMkyxt6XBIJyyx8vjc",
+        authDomain: "fir-1-f162d.firebaseapp.com",
+        projectId: "fir-1-f162d",
+        storageBucket: "fir-1-f162d.firebasestorage.app",
+        messagingSenderId: "523869317457",
+        appId: "1:523869317457:web:5687e4fc503d5981a74b70",
+        measurementId: "G-F14LJSFLL8",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      window.xuLyDangKy = function () {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+          alert("Mật khẩu xác nhận không đúng");
+          return false;
+        }
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            alert("Đăng ký thành công!");
+            console.log(userCredential.user);
+            window.location.href = "Login.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+
+        return false;
+      };
+    </script>
+  </body>
+</html>

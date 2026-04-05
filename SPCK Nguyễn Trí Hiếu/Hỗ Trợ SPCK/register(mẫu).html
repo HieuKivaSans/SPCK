@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đăng Ký Tài Khoản</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f2f5;
+      }
+      .box {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #42b72a;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      button:hover {
+        background: #36a420;
+      }
+      a {
+        text-decoration: none;
+        color: #1877f2;
+        display: block;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>Đăng Ký</h2>
+      <input type="text" id="reg-user" placeholder="Tên đăng nhập mới" />
+      <input type="password" id="reg-pass" placeholder="Mật khẩu mới" />
+      <button onclick="xuLyDangKy()">Đăng Ký</button>
+
+      <a href="login.html">Đã có tài khoản? Đăng nhập ngay</a>
+    </div>
+
+    <script>
+      // Cấu hình Firebase (Lấy từ ảnh của em)
+      const firebaseConfig = {
+        apiKey: "AIzaSyD2trOsVAhgWxgphWqOm5fqZee_iyxHOWQ",
+        authDomain: "project1-d5c29.firebaseapp.com",
+        projectId: "project1-d5c29",
+        storageBucket: "project1-d5c29.firebasestorage.app",
+        messagingSenderId: "949207048847",
+        appId: "1:949207048847:web:a9c3cb62f1f05f529846fa",
+        measurementId: "G-VZHPGZ9W8X",
+      };
+
+      // Khởi tạo Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Hàm lấy giá trị từ input cho gọn
+      function getInputs() {
+        return {
+          e: document.getElementById("email").value,
+          p: document.getElementById("password").value,
+        };
+      }
+      function xuLyDangKy() {
+        var u = document.getElementById("reg-user").value;
+        var p = document.getElementById("reg-pass").value;
+
+        if (u == "" || p == "") {
+          alert("Vui lòng nhập đủ thông tin!");
+          return;
+        }
+
+        function dangKy() {
+        const data = getInputs();
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(data.e, data.p)
+          .then(() => alert("Đăng ký tài khoản thành công!"))
+          .catch((error) => alert("Lỗi đăng ký: " + error.message));
+      }
+
+        // 1. Lấy danh sách user
+        var users = JSON.parse(localStorage.getItem("myUsers")) || [];
+
+        // 2. Kiểm tra trùng tên đăng nhập
+        for (var i = 0; i < users.length; i++) {
+          if (users[i].username == u) {
+            alert("Tên đăng nhập đã tồn tại!");
+            return;
+          }
+        }
+
+        // 3. Thêm user mới vào danh sách
+        users.push({ username: u, password: p });
+        localStorage.setItem("myUsers", JSON.stringify(users));
+
+        alert("Đăng ký thành công! Bạn có thể đăng nhập ngay.");
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>

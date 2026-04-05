@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      // Import Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+      // Firebase config (của bạn)
+      const firebaseConfig = {
+        apiKey: "AIzaSyD0yiVvqb2tQZQ-rf5Vso3QICPivcCBxVw",
+        authDomain: "fir-sdk-72d9a.firebaseapp.com",
+        projectId: "fir-sdk-72d9a",
+        storageBucket: "fir-sdk-72d9a.firebasestorage.app",
+        messagingSenderId: "662046610809",
+        appId: "1:662046610809:web:0231ecc2e7d84ba9100ba8",
+        measurementId: "G-BQSZC3RD7E",
+      };
+
+      // Khởi tạo Firebase (QUAN TRỌNG NHẤT)
+      const app = initializeApp(firebaseConfig);
+
+      // Kết nối các dịch vụ
+   
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      // Kiểm tra kết nối thành công
+      console.log("Kết nối Firebase thành công!");
+    </script>
+  </body>
+</html>
