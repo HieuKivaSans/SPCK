@@ -1,0 +1,76 @@
+body {
+    background-color: #141414 !important;
+    font-family: Arial, sans-serif !important;
+    line-height: 1.6;
+    min-height: 100vh;
+    color: #f1f1f1 !important; /* Default text color is light */
+    background: linear-gradient(rgba(120, 118, 118, 0.544), rgba(89, 87, 87, 0.374)), url('https://i.redd.it/yx6q69hggxqf1.jpeg') no-repeat center center/cover;
+}
+
+.signup-page-wrapper {
+    /* These three lines center the content vertically and horizontally */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.card { 
+    border: none !important; 
+    border-radius: 10px !important;
+    box-shadow: 0 0 15px rgba(0, 216, 245, 0.862) !important; 
+}
+
+.custom-signup-card .card-title, 
+.custom-signup-card .form-label, 
+.custom-signup-card p {
+    color: #f1f1f1 !important; 
+}
+
+.custom-signup-card .form-control {
+    background-color: #333 !important; 
+    color: #f1f1f1 !important; 
+    border: 1px solid #555 !important;
+}
+
+
+.button {
+    background-color: #ff5dfa !important; 
+    border-color: #e50914 !important;
+    color: white !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 10px rgb(255, 32, 88);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: grid;
+}
+
+
+.button:hover {
+    background-color: #a8007e !important; 
+    border-color: #ff4d4d !important;
+    box-shadow: 0 2px 15px rgb(255, 32, 88);
+    color: white;
+}
+
+
+a {
+    text-decoration: none !important; 
+    color: #986bf1 !important; 
+    font-weight: bold !important;
+}
+
+a:hover {
+    color: #c700ac !important;
+}
+::-webkit-input-placeholder { 
+  text-decoration-color: #f1f1f1;
+}
+h2{
+    text-decoration: double;
+}
+.card-title{
+    font-weight: bold;
+}
+
+   

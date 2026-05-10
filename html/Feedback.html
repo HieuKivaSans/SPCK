@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 Submit Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .feedback-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .header h2 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #555;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            font-weight: bold;
+            border: none;
+            transition: background 0.3s ease;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        .main-nav a {
+            color: black;
+            font-size: 1em;
+            text-decoration: none;
+        }
+        .main-nav a:hover {
+            color: #007bff;
+        }
+        .main-nav a.active {
+            font-weight: bold;
+            border-bottom: 2px solid #e50914;
+        }
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .logo {
+            font-size: xx-large;
+            font-weight: bold;
+            color: rgb(192, 95, 192);
+        }
+        .button1 {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgb(255, 255, 0);
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border: 2px solid yellowgreen;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .button1:hover {
+            background-color: rgb(153, 164, 35);
+            color: rgb(142, 142, 142);
+        }
+        .button2 {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #00ff51;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .button2:hover {
+            background-color: rgb(94, 153, 94);
+        }
+        .footer {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-top: 3rem;
+        }
+        h2 { color: rgb(111, 188, 255); }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">TinGameUp247</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../Home.html">Trang Chủ</a></li>
+                <li><a href="#">Cộng đồng</a></li>
+                <li><a href="../html/KhamPha.html">Khám Phá Thêm</a></li>
+                <li><a href="../html/Feedback.html" class="active">Góp ý</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="../html/Login.html" class="button1">Đăng Nhập</a>
+            <a href="../html/Signup.html" class="button2">Đăng Ký</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="feedback-container">
+            <div class="header">
+                <h2>Gửi Ý Kiến Phản Hồi</h2>
+            </div>
+
+            <form id="feedbackForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Tài khoản / Họ tên</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Nhập tên của bạn" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Tiêu đề</label>
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Chủ đề phản hồi" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Nội dung phản hồi</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Nội dung phản hồi của bạn" required></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label for="link_anh" class="form-label">Link ảnh minh họa (nếu có)</label>
+                    <input type="url" class="form-control" id="link_anh" name="link_anh" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <button type="submit" class="btn btn-submit">Gửi Phản Hồi</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ✅ Footer đặt đúng vị trí — ngoài script, trong body -->
+    <footer class="footer">
+        <p>Liên hệ: trihieunguyen91@gmail.com</p>
+        <p>© 2025 TinGameUp247. Mọi quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="module">
+        import { auth, db } from "../js/Firebase.js";
+        import { ref, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+        // ===== Check login =====
+        onAuthStateChanged(auth, (user) => {
+            const userActions = document.querySelector(".user-actions");
+            if (user) {
+                userActions.innerHTML = `
+                    <span>Xin chào, ${user.email}</span>
+                    <button class="button1" onclick="dangXuat()">Đăng Xuất</button>
+                `;
+            } else {
+                userActions.innerHTML = `
+                    <a class="button1" href="../html/Login.html">Đăng Nhập</a>
+                    <a class="button2" href="../html/Signup.html">Đăng Ký</a>
+                `;
+            }
+        });
+
+        // ===== Submit Feedback =====
+        const form = document.getElementById("feedbackForm");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            if (!auth.currentUser) {
+                alert("Bạn cần đăng nhập trước khi gửi feedback!");
+                window.location.href = "../html/Login.html";
+                return;
+            }
+
+            const name = document.getElementById("username").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const link_anh = document.getElementById("link_anh").value.trim();
+
+            if (!name || !subject || !message) {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            try {
+                await push(ref(db, "feedbacks"), {
+                    name,
+                    subject,
+                    message,
+                    link_anh,
+                    userEmail: auth.currentUser.email,
+                    createdAt: new Date().toISOString()
+                });
+                alert("Gửi feedback thành công!");
+                form.reset();
+            } catch (error) {
+                alert("Lỗi: " + error.message);
+            }
+        });
+
+        // ===== Logout =====
+        window.dangXuat = function () {
+            signOut(auth)
+                .then(() => {
+                    alert("Đăng xuất thành công!");
+                    window.location.href = "../html/Login.html";
+                })
+                .catch((error) => {
+                    alert("Đăng xuất thất bại: " + error.message);
+                });
+        };
+    </script>
+
+</body>
+</html>

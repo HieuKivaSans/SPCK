@@ -1,0 +1,77 @@
+body {
+    background-color: #141414 !important;
+    font-family: Arial, sans-serif !important;
+    line-height: 1.6;
+    min-height: 100vh;
+    color: #f1f1f1 !important; /* Default text color is light */
+    background: linear-gradient(rgba(120, 118, 118, 0.544), rgba(89, 87, 87, 0.374)), url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/257393546/original/eae7569d8babf35d012f5cae23bac17f9e6bb76a/do-2-valorant-csgo-apex-cod-custom-gaming-thumbnails.png') no-repeat center center/cover;
+}
+
+.signup-page-wrapper {
+    /* These three lines center the content vertically and horizontally */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.card { 
+    border: none !important; 
+    border-radius: 10px !important;
+    box-shadow: 0 0 15px rgba(245, 0, 12, 0.862) !important; 
+}
+
+.custom-signup-card .card-title, 
+.custom-signup-card .form-label, 
+.custom-signup-card p {
+    color: #f1f1f1 !important; 
+}
+
+.custom-signup-card .form-control {
+    background-color: #333 !important; 
+    color: #f1f1f1 !important; 
+    border: 1px solid #555 !important;
+}
+
+/* 4. BUTTON STYLING (The Accent Red) */
+.button {
+    background-color: #5dff70 !important; 
+    border-color: #e50914 !important;
+    color: white !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 10px rgb(28, 211, 248);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: grid;
+}
+
+/* Simple Hover Effect */
+.button:hover {
+    background-color: #11c641 !important; 
+    border-color: #ff4d4d !important;
+    box-shadow: 0 2px 15px rgb(89, 223, 250);
+    font-weight: bold !important;
+}
+
+/* 5. LINK STYLES */
+a {
+    text-decoration: none !important; 
+    color: #986bf1 !important; /* Use the primary red for links */
+    font-weight: bold !important;
+}
+
+a:hover {
+    color: #c700ac !important;
+}
+::-webkit-input-placeholder { 
+  text-decoration-color: #f1f1f1;
+}
+h2{
+    text-decoration: double;
+}
+.card-title{
+    font-weight: bold;
+    color: #ff4d4d;
+}
+
+   

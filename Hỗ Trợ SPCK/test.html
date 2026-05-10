@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase Auth Test</title>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+  </head>
+  <body>
+    <h2>Hệ thống Đăng nhập / Đăng ký</h2>
+
+    <input type="email" id="email" placeholder="Nhập email" />
+    <input
+      type="password"
+      id="password"
+      placeholder="Nhập mật khẩu (6+ ký tự)"
+    />
+    <br /><br />
+
+    <button onclick="dangNhap()">Đăng nhập</button>
+    <button onclick="dangKy()">Đăng ký mới</button>
+    <button onclick="signOut()">Đăng xuất</button>
+
+    <script>
+      // Cấu hình Firebase (Lấy từ ảnh của em)
+      const firebaseConfig = {
+        apiKey: "AIzaSyD2trOsVAhgWxgphWqOm5fqZee_iyxHOWQ",
+        authDomain: "project1-d5c29.firebaseapp.com",
+        projectId: "project1-d5c29",
+        storageBucket: "project1-d5c29.firebasestorage.app",
+        messagingSenderId: "949207048847",
+        appId: "1:949207048847:web:a9c3cb62f1f05f529846fa",
+        measurementId: "G-VZHPGZ9W8X",
+      };
+
+      // Khởi tạo Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Hàm lấy giá trị từ input cho gọn
+      function getInputs() {
+        return {
+          e: document.getElementById("email").value,
+          p: document.getElementById("password").value,
+        };
+      }
+
+      // 1. Hàm Đăng nhập
+      function dangNhap() {
+        const data = getInputs();
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(data.e, data.p)
+          .then((user) => {
+            alert("Đăng nhập thành công! Chào " + user.user.email);
+            window.location.href = "home.html";
+          })
+          .catch((error) => alert("Lỗi đăng nhập: " + error.message));
+      }
+
+      // 2. Hàm Đăng ký
+      function dangKy() {
+        const data = getInputs();
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(data.e, data.p)
+          .then(() => alert("Đăng ký tài khoản thành công!"))
+          .catch((error) => alert("Lỗi đăng ký: " + error.message));
+      }
+
+      // 3. Hàm Đăng xuất
+      function signOut() {
+        firebase
+          .auth()
+          .signOut()
+          .then(() => {
+            alert("Đã đăng xuất.");
+            window.location.href = "index.html";
+          })
+          .catch((error) => console.error(error));
+      }
+    </script>
+  </body>
+</html>

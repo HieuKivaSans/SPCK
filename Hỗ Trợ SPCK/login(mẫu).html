@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đăng Nhập</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f2f5;
+      }
+      .box {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #1877f2;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      button:hover {
+        background: #166fe5;
+      }
+      a {
+        text-decoration: none;
+        color: #42b72a;
+        display: block;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>Đăng Nhập</h2>
+      <input type="text" id="login-user" placeholder="Tên đăng nhập" />
+      <input type="password" id="login-pass" placeholder="Mật khẩu" />
+      <button onclick="xuLyDangNhap()">Đăng Nhập</button>
+
+      <a href="register.html">Chưa có tài khoản? Đăng ký mới</a>
+    </div>
+
+    <script>
+       function dangNhap() {
+        const data = getInputs();
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(data.e, data.p)
+          .then((user) => {
+            alert("Đăng nhập thành công! Chào " + user.user.email);
+            window.location.href = "home.html";
+          })
+          .catch((error) => alert("Lỗi đăng nhập: " + error.message));
+      }
+    </script>
+  </body>
+</html>
