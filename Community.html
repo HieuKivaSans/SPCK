@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎮 Cộng Đồng - TinGameUp247</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/Community.css">
+      <link rel="icon" type="image/x-icon" href="../photo/logo.jpg">
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="logo">TinGameUp247</div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Trang Chủ</a></li>
+        <li><a href="#" class="active">Cộng Đồng</a></li>
+        <li><a href="../html/KhamPha.html">Khám Phá</a></li>
+        <li><a href="../html/Feedback.html">Góp Ý</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-actions">
+      <a href="../html/Login.html" class="button1">Đăng Nhập</a>
+      <a href="../html/Signup.html" class="button2">Đăng Ký</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="community-hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>🎮 Cộng Đồng Game Thủ</h1>
+      <p>
+        Chia sẻ cảm nghĩ, tin tức, meme và bàn luận về những tựa game hot nhất hiện nay.
+      </p>
+
+      <button class="create-btn" id="openModal">
+        ✨ Tạo Bài Viết
+      </button>
+    </div>
+  </section>
+
+  <!-- TRENDING -->
+  <section class="trending-section container">
+    <h2 class="section-title">🔥 Chủ Đề Hot Hôm Nay</h2>
+
+    <div class="trending-grid">
+
+      <div class="trend-card">
+        <h3>Valorant Patch 11.11</h3>
+        <p>Liệu Chamber có thật sự cân bằng chưa?</p>
+      </div>
+
+      <div class="trend-card">
+        <h3>Minecraft Update</h3>
+        <p>Update mới khiến cộng đồng tranh cãi dữ dội.</p>
+      </div>
+
+      <div class="trend-card">
+        <h3>CS2 Anti Cheat</h3>
+        <p>Người chơi đang yêu cầu VAC nâng cấp.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POSTS -->
+  <section class="posts-section container">
+
+    <div class="posts-header">
+      <h2 class="section-title">📰 Bài Viết Cộng Đồng</h2>
+    </div>
+
+    <div class="posts-grid" id="postsContainer">
+
+      <!-- POST 1 -->
+      <div class="post-card">
+
+        <img
+          src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/e5f34c6bfd54b8eb3ef73cb9750865ce728cb54c-1920x1080.jpg"
+          class="img-post"
+        />
+
+        <div class="post-content">
+          <h3>Valorant đang mất cân bằng?</h3>
+
+          <p>
+            Nhiều người chơi cho rằng meta hiện tại đang quá thiên về duelists.
+          </p>
+
+          <div class="post-footer">
+            <span>👤 HieuKivaSans</span>
+
+            <button class="like-btn">
+              ❤️ <span>12</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- POST 2 -->
+      <div class="post-card">
+
+        <img
+          src="https://i.ytimg.com/vi/wOgCRPuVE8Q/maxresdefault.jpg"
+          class="img-post"
+        />
+
+        <div class="post-content">
+          <h3>Minecraft update mới quá đỉnh</h3>
+
+          <p>
+            Mob mới và biome mới đang khiến cộng đồng cực kỳ hào hứng.
+          </p>
+
+          <div class="post-footer">
+            <span>👤 Alex</span>
+
+            <button class="like-btn">
+              ❤️ <span>25</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- POST 3 -->
+      <div class="post-card">
+
+        <img
+          src="https://static0.thegamerimages.com/wordpress/wp-content/uploads/2019/06/Fortnite-fortnight.jpg"
+          class="img-post"
+        />
+
+        <div class="post-content">
+          <h3>Fortnite comeback?</h3>
+
+          <p>
+            Event mới của Fortnite đang kéo rất nhiều người chơi quay trở lại.
+          </p>
+
+          <div class="post-footer">
+            <span>👤 Ryan</span>
+
+            <button class="like-btn">
+              ❤️ <span>8</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="custom-modal" id="postModal">
+
+    <div class="modal-box">
+
+      <span class="close-modal" id="closeModal">&times;</span>
+
+      <h2>Tạo bài viết mới</h2>
+
+      <input
+        type="text"
+        id="postTitle"
+        placeholder="Tiêu đề bài viết"
+      />
+
+      <textarea
+        id="postDescription"
+        placeholder="Bạn đang nghĩ gì?"
+      ></textarea>
+
+      <input
+        type="text"
+        id="postImage"
+        placeholder="Link ảnh bài viết"
+      />
+
+      <button id="submitPost">
+        Đăng Bài
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Liên hệ: trihieunguyen91@gmail.com</p>
+    <p>© 2025 TinGameUp247. Mọi quyền được bảo lưu.</p>
+  </footer>
+
+  <script src="../js/Community.js"></script>
+
+</body>
+</html>
